@@ -1,6 +1,11 @@
+from datetime import datetime
 from django.shortcuts import render
-from django.http import HttpResponse
+from posts.models import Post
 # Create your views here.
 
 def welcome(request):
-    return render(request, "website/welcome.html")
+    return render(request, "website/welcome.html" ,                 
+                {"currentTime" : datetime.now() , 
+                 "posts" : Post.objects.all(),
+                 "numPosts" : Post.objects.count()
+                }) 

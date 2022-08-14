@@ -1,2 +1,16 @@
-man this shit sucks 
-<h1>Yooooooo</h1>
+{% extends 'base.html' %}
+
+{% block title %} Welcome to Rock911's Blog {% endblock %} 
+
+{% block content %}
+     
+<h1>Yoooo the current time is {{ currentTime }} </h1>
+<hr>
+<p> the number of posts are -> {{ numPosts }}</p>
+<hr>
+<p> 
+    {% for post in posts %}
+    <h2> {{post.body}} </h2>
+    {% endfor %} 
+</p>
+{% endblock %}
